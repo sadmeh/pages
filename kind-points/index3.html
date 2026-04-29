@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KindPoints - ABA Reward Board App | Reinforce Positive Behavior</title>
+    <style>
+        /* CSS STYLES */
+        :root {
+            --primary-color: #5856D6;
+            --secondary-color: #FF9500;
+            --accent-green: #34C759;
+            --accent-blue: #007AFF;
+            --text-dark: #1D1D1F;
+            --text-light: #86868B;
+            --bg-light: #F5F5F7;
+            --white: #FFFFFF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-light);
+        }
+        
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .logo {
+            max-height: 8rem;
+        }
+        .app-name {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* FEATURES SECTION */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            color: var(--text-dark);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        /* PRIVACY SECTION */
+        .privacy-section {
+            background: var(--white);
+        }
+        
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .privacy-highlight {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 4px solid var(--accent-green);
+        }
+        
+        .privacy-highlight strong {
+            color: #2e7d32;
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        /* CONTACT SECTION */
+        .contact-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: var(--white);
+        }
+        
+        .contact-section .section-title {
+            color: var(--white);
+        }
+        
+        .contact-card {
+            background: rgba(255,255,255,0.95);
+            color: var(--text-dark);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: background 0.3s ease;
+        }
+        
+        .contact-button:hover {
+            background: #4a48b5;
+        }
+        
+        /* FOOTER */
+        footer {
+            background: var(--text-dark);
+            color: var(--text-light);
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .app-name {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            header {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <header>
+        <div class="container">
+            <img class="logo" src="./images/logo.png">
+            <h1 class="app-name">KindPoints</h1>
+            <p class="tagline">A child-friendly reward board app that reinforces positive behavior through structured rewards and immediate feedback.</p>
+            <p style="margin-top: 20px; font-size: 1rem; opacity: 0.9;">Designed for children ages 3-12 • Built with ABA principles</p>
+        </div>
+    </header>
+
+    <!-- FEATURES SECTION -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">✨ Core Features</h2>
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">⭐</div>
+                    <h3 class="feature-title">Behavior Tracking Dashboard</h3>
+                    <p>Instant visual feedback with "Good" and "Oops" buttons. Track progress in real-time with a prominent token count display and scrollable history log.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 class="feature-title">Goal Setting & Progress</h3>
+                    <p>Create configurable reward goals with optional images. Visual progress bars track achievement, and redeem stars when goals are reached.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🎨</div>
+                    <h3 class="feature-title">Customizable Settings</h3>
+                    <p>Adjust sound volumes independently, select audio output devices, choose color schemes (Light/Dark/System), and reset all data with one tap.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 class="feature-title">Privacy-First Design</h3>
+                    <p>All data stored locally on your device. No cloud sync, no third-party SDKs, and iOS encryption for complete user control over their child's data.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRIVACY POLICY SECTION -->
+    <section class="section privacy-section">
+        <div class="container">
+            <h2 class="section-title">🔒 Our Privacy Commitment</h2>
+            <div class="privacy-content">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    KindPoints is built with <strong>privacy-by-default</strong>. We are committed to protecting your child's privacy and ensuring the security of their personal information.
+                </p>
+                
+                <div class="privacy-highlight">
+                    <strong>✅ LOCAL-ONLY DATA STORAGE</strong>
+                    All user data is stored locally on your device. We do not collect, store, or transmit any personal information to external servers. Your progress, settings, and preferences remain entirely on your device.
+                </div>
+                
+                <div class="privacy-highlight">
+                    <strong>✅ NO PERSONAL INFORMATION COLLECTED</strong>
+                    We do NOT collect account information, email addresses, location data, health records, or financial information. The app requires no user accounts or authentication.
+                </div>
+                
+                <div class="privacy-highlight">
+                    <strong>✅ NO THIRD-PARTY SDKS</strong>
+                    No analytics, advertising, or tracking SDKs are integrated. We comply with Apple's strict App Store privacy requirements and have been reviewed for data collection practices.
+                </div>
+                
+                <h3 style="margin-top: 40px; margin-bottom: 20px;">What Data Is Stored Locally:</h3>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 15px 0; border-bottom: 1px solid #e8e8e8;">• Behavior tracking data (points earned, goals achieved, streaks)</li>
+                    <li style="padding: 15px 0; border-bottom: 1px solid #e8e8e8;">• Goal information (titles, star counts, images)</li>
+                    <li style="padding: 15px 0; border-bottom: 1px solid #e8e8e8;">• Settings preferences (sound volumes, color scheme, audio route)</li>
+                    <li style="padding: 15px 0; border-bottom: 1px solid #e8e8e8;">• Usage statistics (stored locally only)</li>
+                </ul>
+                
+                <h3 style="margin-top: 40px; margin-bottom: 20px;">Your Rights:</h3>
+                <p style="margin-bottom: 15px;">Under GDPR & CCPA, you have the right to:</p>
+                <ul style="list-style: none; padding-left: 0;">
+                    <li style="padding: 10px 0;">• Access all personal data we hold about you</li>
+                    <li style="padding: 10px 0;">• Request deletion of your data</li>
+                    <li style="padding: 10px 0;">• Opt-out of data sharing (we don't share any data)</li>
+                </ul>
+                
+                <div class="privacy-highlight" style="background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); border-left-color: var(--accent-blue);">
+                    <strong>🔐 Simplest Method:</strong> Use the "Reset All Data" button in Settings to immediately delete all your data.
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="#contact" class="contact-button">Contact Us for Privacy Questions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <h2 class="section-title">📧 Contact & Support</h2>
+            <div class="contact-card">
+                <p style="font-size: 1.1rem; margin-bottom: 20px;">
+                    Have questions about KindPoints, your child's data, or wish to exercise privacy rights? We're here to help!
+                </p>
+                
+                <h3 style="margin-bottom: 20px;">👤 Developer Information</h3>
+                <p><strong>Developer:</strong> Mehdi Sadeghi</p>
+                <p><strong>App Name:</strong> KindPoints</p>
+                <p><strong>Target Age:</strong> Children ages 3-12 (with caregiver supervision)</p>
+                
+                <h3 style="margin: 30px 0 20px;">📬 Contact Methods</h3>
+                <p style="margin-bottom: 15px;"><strong>Email Support:</strong></p>
+                <p style="font-size: 1.2rem; font-weight: 600; color: var(--primary-color);">[Insert Email Address]</p>
+                
+                <h3 style="margin: 30px 0 20px;">🌐 Privacy Policy</h3>
+                <p style="margin-bottom: 15px;"><strong>Full Privacy Policy:</strong></p>
+                <p style="font-size: 1.2rem; font-weight: 600; color: var(--primary-color);">[Insert Privacy Policy URL]</p>
+                
+                <h3 style="margin: 30px 0 20px;">📱 App Store</h3>
+                <p style="margin-bottom: 15px;"><strong>App Store Privacy Notice:</strong></p>
+                <p style="font-size: 1rem; margin-bottom: 20px;">https://www.apple.com/app-store/privacy/</p>
+                
+                <a href="[Insert Email Address]" class="contact-button">Send Us an Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREENSHOTS PLACEHOLDER SECTION -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">📱 App Screenshots</h2>
+            <div class="features-grid">
+                <div style="background: #e0e0e0; border-radius: 15px; height: 400px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                    <!-- Replace with actual screenshot -->
+                    <p>Board View Screenshot</p>
+                </div>
+                <div style="background: #e0e0e0; border-radius: 15px; height: 400px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                    <!-- Replace with actual screenshot -->
+                    <p>Goals Tab Screenshot</p>
+                </div>
+                <div style="background: #e0e0e0; border-radius: 15px; height: 400px; display: flex; align-items: center; justify-content: center; color: var(--text-light);">
+                    <!-- Replace with actual screenshot -->
+                    <p>Settings Screenshot</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABA PRINCIPLES SECTION -->
+    <section class="section privacy-section">
+        <div class="container">
+            <h2 class="section-title">🧠 Built on ABA Principles</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: var(--accent-green);">⚡</div>
+                    <h3 class="feature-title">Immediate Reinforcement</h3>
+                    <p>Feedback occurs instantly after action (tap → sound + visual). No delays, no surprises.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: var(--accent-green);">🟢</div>
+                    <h3 class="feature-title">Positive First Focus</h3>
+                    <p>The design emphasizes rewarding good behavior, minimizing focus on negative events to maintain motivation.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon" style="color: var(--accent-green);">✨</div>
+                    <h3 class="feature-title">Simplicity & Predictability</h3>
+                    <p>Minimalist UI with large tap targets and fixed reward structures for children with diverse needs (ASD, ADHD).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <h3 style="color: var(--white); margin-bottom: 20px;">KindPoints</h3>
+            <p style="margin-bottom: 30px;">A therapeutic, child-friendly application designed to reinforce positive behavior through structured rewards and immediate feedback.</p>
+            
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a>
+                <a href="#contact">Contact Support</a>
+                <a href="https://www.apple.com/app-store/privacy/">App Store Privacy</a>
+                <a href="[Insert Website URL]">Website</a>
+            </div>
+            
+            <p style="font-size: 0.9rem; margin-bottom: 15px;">
+                © 2026 KindPoints. All rights reserved.<br>
+                Designed for children ages 3-12 and their caregivers.
+            </p>
+            
+            <p style="font-size: 0.8rem; opacity: 0.7;">
+                This app complies with Apple App Store privacy guidelines and has been reviewed for data collection practices.
+                All user data is stored locally on your device.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
